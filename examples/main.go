@@ -28,10 +28,19 @@ func main() {
 	//nothing like a easy fix
 	players.SetAt(0, playerTypo)
 
+	//let get the last player from the vector
+	lastIndex := players.Size() - 1
+
+	lastPlayer := players.At(lastIndex)
+
+	newPlayer := Player{id: lastPlayer.(Player).id + 1, name: "Gopher minion", trophies: 5045}
+	//One player just joined the game, lets add them on
+	players.PushBack(newPlayer)
+
 	//putting nil in the parameter invokes the default behavior for the map funciton
 	//which just returns copy of the vector
 	playerCopy := players.FpMap(nil)
-	fmt.Printf("Copy size is %d vs the original size of %d", playerCopy.Size(), players.Size())
+	fmt.Printf("Copy size is %d vs the original size of %d\n", playerCopy.Size(), players.Size())
 
 	//Declaring an inline function that act as a closure
 	noNoobs := players.FpFilter(func(player GoVector.T) bool {
@@ -39,9 +48,15 @@ func main() {
 		return player.(Player).trophies > 1000
 	})
 	noobTrophies := noNoobs.FpMap(func(player GoVector.T) GoVector.T {
-		//If I wanted to return a whole copy of an array, then I just return player and set it equal to map function
+		//If I wanted to return a whole copy of an array with just the player trophies, then I just return player and set it equal to map function
 		return player.(Player).trophies
 	})
+	fmt.Println(noobTrophies)
+	//sort the noob trophies from greatest to least, reverse for least to greatest
+	noobTrophies.SortStruct(func(noob1 GoVector.T, noob2 GoVector.T) bool {
+		return noob1.(int) < noob2.(int)
+	})
+	fmt.Println(noobTrophies)
 	proTrophieSum := noobTrophies.FpReduce(func(v1 GoVector.T, v2 GoVector.T) GoVector.T {
 		return v1.(int) + v2.(int)
 	})

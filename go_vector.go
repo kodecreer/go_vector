@@ -45,8 +45,8 @@ func (v *Vector) Clear() {
 func (v *Vector) SortStruct(function func(v1 T, v2 T) bool) {
 	//Golang is picky about uint64 and ints
 	for i := 0; i < int(v.size-1); i++ {
-		for j := 1; j < int(v.size); j++ {
-			if function(v.data[i], v.data[j]) {
+		for j := i + 1; j < int(v.size); j++ {
+			if function(v.data[i], v.data[j]) && i != j {
 				temp := v.data[j]
 				v.data[j] = v.data[i]
 				v.data[i] = temp
