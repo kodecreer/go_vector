@@ -4,7 +4,7 @@
 
 go_vector is a container data structure based on C++ std::Vector. go_vector brings functional programming and removes boilerplate code.
 
-#Code samples
+<h1>Code samples</h1>
 *Snippets from the examples/main.go*
 
 Construct an empty vector
@@ -68,12 +68,16 @@ noobTrophies.SortStruct(func(noob1 GoVector.T, noob2 GoVector.T) bool {
 })
 ```
 
-#Being maintained by
+<h1>Being maintained by</h1>
 Kode Creer <kodeopensource@gmail.com>
 
-#Contributing
+<h1>Contributing</h1>
 Thanks for being willing to contribute to GoVector. You can join the mailing list for discussion about features. There is the dev branch, which is where you would modify and make changes to the librairy. Each feature must have a test to ensure it works with that follows the documentation convention. You can also help out the community by adding more example projects using GoVector that act like tutorials or film them on Youtube. 
 
-#License & Copyright
+To save you a stack overflow search here is how you push the dev branch to the release
+```
+git push origin dev:master
+```
+<h1>License & Copyright</h1>
 MIT License
 © Kode Creer 2019
