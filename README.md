@@ -69,10 +69,10 @@ noobTrophies.SortStruct(func(noob1 GoVector.T, noob2 GoVector.T) bool {
 ```
 
 <h1>Being maintained by</h1>
-Kode Creer <kodeopensource@gmail.com>
+Kode Creer <a href="mailto:kodeopensource@gmail.com">Contact / mailing list email</a>
 
 <h1>Contributing</h1>
-Thanks for being willing to contribute to GoVector. You can join the mailing list for discussion about features. There is the dev branch, which is where you would modify and make changes to the librairy. Each feature must have a test to ensure it works with that follows the documentation convention. You can also help out the community by adding more example projects using GoVector that act like tutorials or film them on Youtube. 
+Thanks for being willing to contribute to GoVector. You can join the mailing list for discussion about features . There is the dev branch, which is where you would modify and make changes to the librairy. Each feature must have a test to ensure it works with that follows the documentation convention. You can also help out the community by adding more example projects using GoVector that act like tutorials or film them on Youtube. 
 
 To save you a stack overflow search here is how you push the dev branch to the release
 ```
