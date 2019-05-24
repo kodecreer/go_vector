@@ -14,6 +14,8 @@ type Player struct {
 
 func main() {
 	var players GoVector.Vector
+
+	//Construct a slice to later be converted into a vector
 	playSlice := make([]GoVector.T, 20)
 	for i := 0; i < 20; i++ {
 		playerName := fmt.Sprintf("NoobSlayer %d", i)
@@ -57,9 +59,14 @@ func main() {
 		return noob1.(int) < noob2.(int)
 	})
 	fmt.Println(noobTrophies)
-	proTrophieSum := noobTrophies.FpReduce(func(v1 GoVector.T, v2 GoVector.T) GoVector.T {
-		return v1.(int) + v2.(int)
-	})
+
+	//This is the structor of what we normally would do if the + operator isn't supported by a struct or data type
+	// proTrophieSum := noobTrophies.FpReduce(func(v1 GoVector.T, v2 GoVector.T) GoVector.T {
+	// 	return v1.(int) + v2.(int)
+	// })
+	//Since golang supports the + operator of int and int we could just invoke the default behavior
+	proTrophieSum := noobTrophies.FpReduce(nil)
+	//which is the same as
 
 	fmt.Println(proTrophieSum)
 	//Let's empty the vecotr
