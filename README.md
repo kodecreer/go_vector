@@ -72,7 +72,7 @@ noobTrophies.SortStruct(func(noob1 GoVector.T, noob2 GoVector.T) bool {
 Kode Creer <kodeopensource@gmail.com>
 
 #Contributing
-Thanks for being willing to contribute to GoVector. You can join the mailing list for discussion about features. 
+Thanks for being willing to contribute to GoVector. You can join the mailing list for discussion about features. There is the dev branch, which is where you would modify and make changes to the librairy. Each feature must have a test to ensure it works with that follows the documentation convention. You can also help out the community by adding more example projects using GoVector that act like tutorials or film them on Youtube. 
 
 #License & Copyright
 MIT License
