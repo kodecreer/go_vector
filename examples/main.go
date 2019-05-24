@@ -29,13 +29,13 @@ func main() {
 		//If I wanted to return a whole copy of an array, then I just return player and set it equal to map function
 		return nil
 	})
-
+	//Seperating players who have 1000+ trophies
 	noNoobs := players.FpFilter(func(player vector.T) bool {
 		// fmt.Println(player)
 		return player.(Player).trophies > 1000
 	})
 	noobTrophies := noNoobs.FpMap(func(player vector.T) vector.T {
-		//If I wanted to return a whole copy of an array, then I just return player and set it equal to map function
+		//All I want is just the trophies from each player
 		return player.(Player).trophies
 	})
 	proTrophieSum := noobTrophies.FpReduce(func(v1 vector.T, v2 vector.T) vector.T {
