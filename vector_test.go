@@ -1,4 +1,4 @@
-package vector
+package GoVector
 
 //NOTICE: Please do not add any 3rd party libraries.
 import (

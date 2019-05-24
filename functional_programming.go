@@ -1,4 +1,4 @@
-package vector
+package GoVector
 
 //FpMap : Returns a copy of the vector that can be altered or not through the inline function
 //	_Parameters:

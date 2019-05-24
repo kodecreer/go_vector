@@ -2,3 +2,6 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+
+#text editor specific files
+.vscode

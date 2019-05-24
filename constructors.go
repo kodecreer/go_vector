@@ -1,4 +1,4 @@
-package vector
+package GoVector
 
 //Init : returns a copy of a initialized vector.
 // _Notes:

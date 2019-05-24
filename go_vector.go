@@ -1,4 +1,4 @@
-package vector
+package GoVector
 
 //T is meant to signify that an interface is supposed to act like a psuedo generic.
 // Mainly mean to undo confusion in the codebase
