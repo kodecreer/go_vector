@@ -1,4 +1,5 @@
 <h1>Functional Programming</h1>
+
 Map function
 ```go
 playerCopy := players.FpMap(nil) //putting nil invokes default behavior of just returning a copy of the vector
