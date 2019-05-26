@@ -1,4 +1,4 @@
-package GoVector
+package govector
 
 /*
 File Prolouge:

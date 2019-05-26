@@ -1,8 +1,9 @@
-package GoVector
+package govector
 
-//NOTICE: Please do not add any 3rd party libraries.
+/* File Prolouge:
+Because there is no need to access private variables here, then we use Unit
+*/
 import (
-	"fmt"
 	"testing"
 )
 
@@ -10,56 +11,6 @@ import (
 type testStruct struct {
 	id    string
 	price int
-}
-
-func TestInitSize(t *testing.T) {
-	/*
-		This tests the Size, all Constructors, and Pushback (because init with slice calls it alot)
-	*/
-	//Testing the initialization of a empty vector
-	var testVector Vector
-	testVector = testVector.Init()
-	if testVector.Size() > 0 {
-		t.Error("Init is not empty")
-	}
-
-	//Testing converting the slice into a vector
-
-	var testSlice = make([]T, 5)
-	for index := 0; index < 5; index++ {
-		testSlice[index] = index * index
-	}
-
-	testVector = testVector.InitWithSlice(testSlice)
-
-	if testVector.Size() != 5 {
-		fmt.Println(testVector)
-		t.Errorf("Init with Slice has failed with a size %d vs 5", testVector.Size())
-	}
-
-}
-
-func TestPushBack(t *testing.T) {
-	var testVector Vector
-	testVector = testVector.Init()
-
-	//push back an integer
-	testVector.PushBack(9)
-
-	if testVector.Size() != 1 && testVector.At(0) != 9 {
-		t.Error("Test failed to correctly push back into the vector")
-	}
-
-	//Must make new vector to have different types
-	var newTestVector Vector
-	newTestVector = newTestVector.Init()
-
-	var structure = testStruct{id: "it's over 9000", price: 9001}
-	newTestVector.PushBack(structure)
-
-	if newTestVector.At(0).(testStruct).price != 9001 {
-		t.Error("Incorrectly adding structs together")
-	}
 }
 
 func TestMap(t *testing.T) {
@@ -165,36 +116,43 @@ func TestFpFilter(t *testing.T) {
 	}
 
 }
-func TestSetRemove(t *testing.T) {
+
+func TestPopBack(t *testing.T) {
+	/*
+		This tests the popback. The result shoudl be left with a vector with a size of 1 and
+	*/
 	var testVector Vector
 	testVector = testVector.Init()
-	testVector.PushBack(9)
-	testVector.PushBack(10)
 
-	testVector.SetAt(0, 9001)
-	if testVector.data[0] != 9001 {
-		t.Error("Test vector is not setting 9 to be over 9000")
-	}
+	testVector.PushBack(9001)
+	testVector.PushBack(80)
 
-	testVector.RemoveAt(0)
-	testVector.PushBack(9)
-	if testVector.At(0) != 10 {
-		t.Error("Failed to remove value at top")
+	testVector.PopBack()
+	if testVector.At(0) != 9001 {
+		t.Error("Value removed is incorrect ")
 	}
-	testVector.RemoveAt(1)
-	if testVector.Size() != 1 {
-		t.Error("Failed to remove at end")
+	if testVector.Size() > 1 {
+		t.Error("testVector did not remove element")
 	}
-
 }
-func TestClear(t *testing.T) {
+func TestFpIndexOf(t *testing.T) {
+	/*
+		This sees whether it returns the correct index in the functional programing indexOf funciton
+	*/
 	var testVector Vector
 	testVector = testVector.Init()
-	testVector.PushBack(9)
-	testVector.PushBack(10)
 
-	testVector.Clear()
-	if testVector.Size() > 0 {
-		t.Error("Vector failed to clear all elements")
+	testVector.PushBack(9001)
+	testVector.PushBack(80)
+	testVector.PushBack(4500)
+	testVector.PushBack(324)
+
+	//called index1 because it's the desired index
+	index1 := testVector.FpIndexOf(func(value T) bool {
+		return value.(int) == 80
+	})
+
+	if index1 != 1 {
+		t.Error("Wrong index returned")
 	}
 }

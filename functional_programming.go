@@ -1,4 +1,4 @@
-package GoVector
+package govector
 
 //FpMap : Returns a copy of the vector that can be altered or not through the inline function
 //	_Parameters:
@@ -96,4 +96,19 @@ func (v *Vector) FpFilter(function func(T) bool) Vector {
 		}
 	}
 	return dataCopy
+}
+
+//FpIndexOf : returns the index of first occurance of the element if found, ortherwise it returns the size of the vecotor
+// _Parameters:
+//		elementToFind: T "The element that is desired to be found"
+// _Return :
+//		The index of the desired element
+func (v *Vector) FpIndexOf(function func(T) bool) int {
+	for index := 0; index < v.Size()-1; index++ {
+		if function(v.data[index]) {
+			return index
+		}
+	}
+	// This is like saying "last" from the normal std::find
+	return v.Size()
 }

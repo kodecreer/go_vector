@@ -1,4 +1,4 @@
-package GoVector
+package govector
 
 //T is meant to signify that an interface is supposed to act like a psuedo generic.
 // Mainly mean to undo confusion in the codebase
@@ -21,6 +21,12 @@ func (v *Vector) PushBack(element T) {
 	v.size++
 }
 
+//PopBack : removes an item to the end of the vector, just like C++
+func (v *Vector) PopBack() {
+	lastIndex := v.Size() - 1
+	v.RemoveAt(lastIndex)
+}
+
 //RemoveAt : removes an item from the vector at a specified index
 // _Parameters:
 //			index: int "the index of the value you want to remove it from"
@@ -36,7 +42,7 @@ func (v *Vector) Clear() {
 	}
 }
 
-//SortStruct : sorts the vecotr
+//SortStruct : sorts the vector
 //_Notes: Use this to sort your structs. You must implment a compare funciton that runs like this
 // 			func(v1, v2){ return v1.compareValue < v2,compareValue }
 // 			You can define an inline function that returns the opposite of your sort in you Struct if you want it to be reversed
