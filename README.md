@@ -1,11 +1,11 @@
 # GoVector
 
-**Version 1.0.0**
+**Version 1.2.0**
 
 go_vector is a container data structure based on C++ std::Vector. go_vector brings functional programming and removes boilerplate code.
 
 <h1>Code samples</h1>
-*Snippets from the examples/main.go*
+*Snippets from the documentation/examples/main.go*
 
 Construct an empty vector
 
